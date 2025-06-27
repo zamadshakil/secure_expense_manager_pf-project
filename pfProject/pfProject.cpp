@@ -19,8 +19,7 @@ string inputPasswordMasked() {
                 password.pop_back();
                 cout << "\b \b";
             }
-        }
-        else {
+        } else {
             password += ch;
             cout << '*';
         }
@@ -114,7 +113,7 @@ void saveAllExpenses(const string& username, Expense* expenses, int size) {
     ofstream file(username + "_data.txt", ios::trunc);
     for (int i = 0; i < size; ++i) {
         file << expenses[i].date << "|" << expenses[i].category << "|"
-            << expenses[i].amount << "|" << expenses[i].description << endl;
+             << expenses[i].amount << "|" << expenses[i].description << endl;
     }
 }
 
@@ -170,7 +169,7 @@ void viewExpenses(Expense* expenses, int size) {
     cout << "\n--- Expense Records ---\n";
     for (int i = 0; i < size; ++i) {
         cout << i << ". Date: " << expenses[i].date << ", Category: " << expenses[i].category
-            << ", Amount: " << expenses[i].amount << ", Description: " << expenses[i].description << endl;
+             << ", Amount: " << expenses[i].amount << ", Description: " << expenses[i].description << endl;
     }
     cout << "------------------------\n";
 }
@@ -189,9 +188,9 @@ void exportToCSV(const string& username, Expense* expenses, int size) {
     file << "Date,Category,Amount,Description\n";
     for (int i = 0; i < size; ++i) {
         file << expenses[i].date << ","
-            << expenses[i].category << ","
-            << expenses[i].amount << ","
-            << expenses[i].description << "\n";
+             << expenses[i].category << ","
+             << expenses[i].amount << ","
+             << expenses[i].description << "\n";
     }
     cout << "Expenses exported to " << username << "_report.csv\n";
 }
@@ -212,8 +211,7 @@ int main() {
 
         if (choice == 1) {
             signup();
-        }
-        else if (choice == 2) {
+        } else if (choice == 2) {
             if (login(loggedInUser)) {
                 cout << "\nWelcome, " << loggedInUser << "!\n";
                 loadExpenses(loggedInUser, expenses, size, capacity);
@@ -238,12 +236,10 @@ int main() {
 
                 delete[] expenses;
                 expenses = nullptr;
-            }
-            else {
+            } else {
                 cout << "Invalid credentials.\n";
             }
-        }
-        else if (choice == 0) {
+        } else if (choice == 0) {
             break;
         }
     }
